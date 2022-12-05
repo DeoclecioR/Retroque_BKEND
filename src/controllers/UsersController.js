@@ -4,13 +4,15 @@ import User from '../models/Users.js';
 //Cria as funções das rotas referente aos usuários
 export default {
   async show(request, response) {
+    //Para retornar uma quantidade limitada de itens deve-se passar na querystring
+    // "/user?limit=<quantidade desejada>"
     const { nome } = request.query;
-    const { limite } = request.query;
+    const { limit } = request.query;
   
     try {
       const result = nome
-      ? await User.find({"nome": nome}).limit(limite)
-      : await User.find().limit(limite);
+      ? await User.find({"nome": nome}).limit(limit)
+      : await User.find().limit(limit);
   
       return response.json(result);
     } catch (error) {
