@@ -5,11 +5,11 @@ import itensController from '../controllers/ItensController.js';
 const itensRoutes = Router();
 
 
-  ///adição
+  ///Adição
   itensRoutes.post('/', itensController.store);
 
 
-  ///listagem
+  ///Listagem
   itensRoutes.get('/', itensController.show);
 
 

@@ -92,16 +92,18 @@ export default {
   },
 
   async login(request, response) {
-    //Para retornar uma quantidade limitada de usuarios deve-se passar na querystring
-    // "/user?limit=<quantidade desejada>"
+    //Deve ser passado no body o email e senha do usuário
+    //Caso haja no sistema tais dados, será retornado o ID desse usuário
 
-    const { email } = request.body.email;
-    const { senha } = request.body.senha;
+    const { email } = request.body;
+    const { senha } = request.body;
   
+
     try {
       const result = await User.find({"email": email});
-      if(result.senha == senha){
-        return response.json(result.id);
+
+      if(result[0].senha == senha){
+        return response.json(result[0].id);
       }
       throw new Error("Senha incorreta!")
     } catch (error) {

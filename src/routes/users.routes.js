@@ -5,11 +5,11 @@ import usersController from '../controllers/UsersController.js';
 const usersRoutes = Router();
 
 
-  ///adição
+  ///Adição
   usersRoutes.post('/', usersController.store);
 
 
-  ///listagem
+  ///Listagem
   usersRoutes.get('/', usersController.show);
 
 
@@ -21,8 +21,8 @@ const usersRoutes = Router();
   usersRoutes.delete('/:id', usersController.destroy);
 
   
-  ///login
-  usersRoutes.get('/login', usersController.login);
+  ///Login
+  usersRoutes.post('/login', usersController.login);
 
 
 export default usersRoutes;

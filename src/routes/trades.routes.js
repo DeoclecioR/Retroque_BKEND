@@ -5,11 +5,11 @@ import tradesController from '../controllers/TradesController.js';
 const tradesRoutes = Router();
 
 
-  ///adição
+  ///Adição
   tradesRoutes.post('/', tradesController.store);
 
 
-  ///listagem
+  ///Listagem
   tradesRoutes.get('/', tradesController.show);
 
 

@@ -12,7 +12,7 @@ app.use(routes);
 
 
 ///PORT
-// "process.env.PORT" se refere à porta passada pelo Heroku, caso não seja usado, a porta default é 3000
+// "process.env.PORT" se refere à porta passada pelo Heroku, caso não seja usado, a porta default é 3333
 
 
   const port = process.env.PORT || 3333;
