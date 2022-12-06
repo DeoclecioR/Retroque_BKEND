@@ -103,6 +103,7 @@ export default {
       if(result.senha == senha){
         return response.json(result.id);
       }
+      throw new Error("Senha incorreta!")
     } catch (error) {
       return response.status(500).json({ error });
     }
