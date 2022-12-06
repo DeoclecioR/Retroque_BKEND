@@ -21,10 +21,10 @@ const TradeSchema = new mongoose.Schema({
     },
     //Para confirmar a troca entre os produtos
     aceppted_1: {
-      type: int,
+      type: Number,
     },
     aceppted_2: {
-      type: int,
+      type: Number,
     },
   });
   

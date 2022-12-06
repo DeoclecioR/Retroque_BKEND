@@ -1,5 +1,5 @@
 
-import Trade from '../models/Trades';
+import Trade from '../models/Trades.js';
 
 //Cria as funções das rotas referente as trocas
 export default {
@@ -38,7 +38,6 @@ export default {
       return response.status(500).json({ error });
     }
   },
-
 
   async update(request, response) {
     //Deve ser passado o id da troca para atualizar
