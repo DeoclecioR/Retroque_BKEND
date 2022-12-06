@@ -39,6 +39,13 @@ const ItemSchema = new mongoose.Schema({
       type: Date,
       default: Date.now,
     },
+    img_url: {
+      type: String,
+      required: true,
+    },
+    slug: {
+      type: String,
+    }
   });
   
   

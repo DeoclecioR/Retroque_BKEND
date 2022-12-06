@@ -42,6 +42,8 @@ export default {
 
 
   async update(request, response) {
+    //Deve ser passado o id do user para atualizar
+    // user/<id_do_user>
     const { id } = request.params;
     const { nome, endereco, email, senha, contato, formas_de_pagamento } = request.body;
   
@@ -68,6 +70,8 @@ export default {
   },
 
   async destroy(request, response) {
+    //Deve ser passado o id do user para deletar
+    // user/<id_do_user>
     const { id } = request.params;
   
     try {

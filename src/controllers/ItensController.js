@@ -20,6 +20,8 @@ export default {
   },
 
   async store(request, response) {
+    //Dever ser passado o ID do usuário que é dono do objeto a se cadastrar
+    //item/<ID_do_usuário>
     const { 
       nome,
       descricao,
@@ -27,7 +29,27 @@ export default {
       categoria,
       quantidade,
       formas_de_entrega,
-      formas_de_pagamento } = request.body;
+      formas_de_pagamento,
+      img_url } = request.body;
+      //cria Slug do item
+      const slug = request.body.nome.toString().toLowerCase()
+      .replace(/[àÀáÁâÂãäÄÅåª]+/g, 'a')       // Special Characters #1
+      .replace(/[èÈéÉêÊëË]+/g, 'e')           // Special Characters #2
+      .replace(/[ìÌíÍîÎïÏ]+/g, 'i')           // Special Characters #3
+      .replace(/[òÒóÓôÔõÕöÖº]+/g, 'o')           // Special Characters #4
+      .replace(/[ùÙúÚûÛüÜ]+/g, 'u')           // Special Characters #5
+      .replace(/[ýÝÿŸ]+/g, 'y')               // Special Characters #6
+      .replace(/[ñÑ]+/g, 'n')                   // Special Characters #7
+      .replace(/[çÇ]+/g, 'c')                   // Special Characters #8
+      .replace(/[ß]+/g, 'ss')                   // Special Characters #9
+      .replace(/[Ææ]+/g, 'ae')                   // Special Characters #10
+      .replace(/[Øøœ]+/g, 'oe')               // Special Characters #11
+      .replace(/[%]+/g, 'pct')                   // Special Characters #12
+      .replace(/\s+/g, '-')                   // Replace spaces with -
+      .replace(/[^\w-]+/g, '')               // Remove all non-word chars
+      .replace(/--+/g, '-')                 // Replace multiple - with single -
+      .replace(/^-+/, '')                     // Trim - from start of text
+      .replace(/-+$/, '');
 
     const owner_id = request.query.owner_id;
   
@@ -39,7 +61,9 @@ export default {
       owner_id,
       quantidade,
       formas_de_entrega,
-      formas_de_pagamento
+      formas_de_pagamento,
+      slug,
+      img_url
     }
   
     try {
@@ -52,6 +76,8 @@ export default {
 
 
   async update(request, response) {
+    //Deve ser passado o id do item para atualizar
+    // item/<id_do_item> 
     const { id } = request.params;
     
     const { 
@@ -61,7 +87,27 @@ export default {
       categoria,
       quantidade,
       formas_de_entrega,
-      formas_de_pagamento } = request.body;
+      formas_de_pagamento,
+      img_url } = request.body;
+      //cria Slug do item
+      const slug = request.body.nome.toString().toLowerCase()
+      .replace(/[àÀáÁâÂãäÄÅåª]+/g, 'a')       // Special Characters #1
+      .replace(/[èÈéÉêÊëË]+/g, 'e')           // Special Characters #2
+      .replace(/[ìÌíÍîÎïÏ]+/g, 'i')           // Special Characters #3
+      .replace(/[òÒóÓôÔõÕöÖº]+/g, 'o')           // Special Characters #4
+      .replace(/[ùÙúÚûÛüÜ]+/g, 'u')           // Special Characters #5
+      .replace(/[ýÝÿŸ]+/g, 'y')               // Special Characters #6
+      .replace(/[ñÑ]+/g, 'n')                   // Special Characters #7
+      .replace(/[çÇ]+/g, 'c')                   // Special Characters #8
+      .replace(/[ß]+/g, 'ss')                   // Special Characters #9
+      .replace(/[Ææ]+/g, 'ae')                   // Special Characters #10
+      .replace(/[Øøœ]+/g, 'oe')               // Special Characters #11
+      .replace(/[%]+/g, 'pct')                   // Special Characters #12
+      .replace(/\s+/g, '-')                   // Replace spaces with -
+      .replace(/[^\w-]+/g, '')               // Remove all non-word chars
+      .replace(/--+/g, '-')                 // Replace multiple - with single -
+      .replace(/^-+/, '')                     // Trim - from start of text
+      .replace(/-+$/, '');
   
     const editedItem = {
       nome,
@@ -70,7 +116,9 @@ export default {
       categoria,
       quantidade,
       formas_de_entrega,
-      formas_de_pagamento
+      formas_de_pagamento,
+      slug,
+      img_url
     }
     
     try {
@@ -87,6 +135,8 @@ export default {
   },
 
   async destroy(request, response) {
+    //Deve ser passado o id do item para deletar
+    // item/<id_do_item>
     const { id } = request.params;
   
     try {
