@@ -5,6 +5,8 @@ export default {
   async show(request, response) {
     //Para retornar uma quantidade limitada de itens deve-se passar na querystring
     // "/item?limit=<quantidade desejada>"
+    //Para pesquisar uma categoria especéfica, deve se passar como parâmetro na querystring
+    // "/item?categoria=<categoria_desejada>"
     const { categoria } = request.query;
     const { limit } = request.query;
     try {
@@ -31,7 +33,8 @@ export default {
       formas_de_entrega,
       formas_de_pagamento,
       img_url } = request.body;
-      //cria Slug do item
+      
+      //criando Slug do item
       const slug = request.body.nome.toString().toLowerCase()
       .replace(/[àÀáÁâÂãäÄÅåª]+/g, 'a')       // Special Characters #1
       .replace(/[èÈéÉêÊëË]+/g, 'e')           // Special Characters #2

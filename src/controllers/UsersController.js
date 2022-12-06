@@ -4,15 +4,13 @@ import User from '../models/Users.js';
 //Cria as funções das rotas referente aos usuários
 export default {
   async show(request, response) {
-    //Para retornar uma quantidade limitada de itens deve-se passar na querystring
+    //Para retornar uma quantidade limitada de usuarios deve-se passar na querystring
     // "/user?limit=<quantidade desejada>"
-    const { nome } = request.query;
+
     const { limit } = request.query;
   
     try {
-      const result = nome
-      ? await User.find({"nome": nome}).limit(limit)
-      : await User.find().limit(limit);
+      const result = await User.find().limit(limit);
   
       return response.json(result);
     } catch (error) {
@@ -21,7 +19,11 @@ export default {
   },
 
   async store(request, response) {
-    const { nome, endereco, email, senha, contato, formas_de_pagamento } = request.body;
+    const { nome, 
+            endereco, 
+            email, 
+            senha, 
+            contato } = request.body;
   
     const newUser = {
       nome,
@@ -44,7 +46,11 @@ export default {
     //Deve ser passado o id do user para atualizar
     // user/<id_do_user>
     const { id } = request.params;
-    const { nome, endereco, email, senha, contato, formas_de_pagamento } = request.body;
+    const { nome, 
+            endereco, 
+            email, 
+            senha, 
+            contato } = request.body;
   
     const editedUser = {
       nome,
