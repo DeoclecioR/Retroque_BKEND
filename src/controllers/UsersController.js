@@ -28,8 +28,7 @@ export default {
       endereco,
       email,
       senha,
-      contato,
-      formas_de_pagamento
+      contato
     }
   
     try {
@@ -52,8 +51,7 @@ export default {
       endereco,
       email,
       senha,
-      contato,
-      formas_de_pagamento
+      contato
     }
     
     try {

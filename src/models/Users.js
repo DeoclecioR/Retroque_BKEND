@@ -28,14 +28,10 @@ const UsersSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  formas_de_pagamento: {
-    type: String,
-    required: true,
-  },
   data_de_criacao: {
     type: Date,
     default: Date.now,
-  },
+  }
 });
 
 
