@@ -13,7 +13,7 @@ app.use(routes);
 // "process.env.PORT" se refere à porta passada pelo Heroku, caso não seja usado, a porta default é 3000
 
 
-  const port = process.env.PORT || 3000;
+  const port = process.env.PORT || 3333;
   app.listen(port, () => {
     console.log("Servidor funcionando!!!")
   });

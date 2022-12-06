@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 //Conectando ao banco de dados
-const connectionString = 'mongodb://127.0.0.1:27017';
+const connectionString = 'mongodb+srv://dedev:IMsnxD0th18YxNBa@cluster0.mi1p9ay.mongodb.net/?retryWrites=true&w=majority';
 mongoose
   .connect(connectionString)
   .then(() => {
