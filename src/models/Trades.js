@@ -3,21 +3,28 @@ import mongoose from '../database/index.js';
 //Schema da troca
 const TradeSchema = new mongoose.Schema({
  
-    id_user1: {
+    id_user_1: {
       type: String,
       required: true,
     },
-    id_item1: {
+    id_item_1: {
       type: String,
       required: true,
     },
-    id_user2: {
+    id_user_2: {
       type: String,
       required: true,
     },
-    id_item2: {
+    id_item_2: {
       type: String,
       required: true,
+    },
+    //Para confirmar a troca entre os produtos
+    aceppted_1: {
+      type: int,
+    },
+    aceppted_2: {
+      type: int,
     },
   });
   

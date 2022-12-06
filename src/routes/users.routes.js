@@ -17,9 +17,12 @@ const usersRoutes = Router();
   usersRoutes.put('/:id', usersController.update);
 
 
-
   ///Exclusão
   usersRoutes.delete('/:id', usersController.destroy);
+
+  
+  ///login
+  usersRoutes.get('/login', usersController.login);
 
 
 export default usersRoutes;

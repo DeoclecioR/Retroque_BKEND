@@ -89,5 +89,22 @@ export default {
     } catch (error) {
       return response.status(500).json({ error });
     }
-  }
+  },
+
+  async login(request, response) {
+    //Para retornar uma quantidade limitada de usuarios deve-se passar na querystring
+    // "/user?limit=<quantidade desejada>"
+
+    const { email } = request.body.email;
+    const { senha } = request.body.senha;
+  
+    try {
+      const result = await User.find({"email": email});
+      if(result.senha == senha){
+        return response.json(result.id);
+      }
+    } catch (error) {
+      return response.status(500).json({ error });
+    }
+  },
 };

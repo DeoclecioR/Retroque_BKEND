@@ -44,23 +44,27 @@ export default {
     //Deve ser passado o id da troca para atualizar
     // "trade/<id_da_trade>"
     const { id } = request.params;
-    const { id_user1, 
-            id_item1, 
-            id_user2, 
-            id_item2 } = request.body;
+    const { id_user_1, 
+            id_item_1, 
+            id_user_2, 
+            id_item_2,
+            accepted_1,
+            accepted_2 } = request.body;
   
     const editedTrade = {
-      id_user1, 
-      id_item1, 
-      id_user2, 
-      id_item2
+      id_user_1, 
+      id_item_1, 
+      id_user_2, 
+      id_item_2,
+      accepted_1,
+      accepted_2
     }
     
     try {
       const tradeUpdateInformation = await Trade.updateOne({_id: id}, editedTrade)
       
       if(tradeUpdateInformation.matchedCount === 0){
-        return response.status(404).json({ error: "Usuario não encontrado." });
+        return response.status(404).json({ error: "Troca não encontrada." });
       }
       
       return response.json(editedTrade);
@@ -78,7 +82,7 @@ export default {
       const tradeDeleteInformation = await Trade.deleteOne({_id: id})
   
       if(tradeDeleteInformation.deletedCount === 0){
-        return response.status(404).json({ error: "Usuario não encontrado." });
+        return response.status(404).json({ error: "Troca não encontrada." });
       }
       
       return response.status(204).send();
