@@ -17,8 +17,7 @@ export default {
     try {
       const result = categoria
       ? await Item.find({"categoria": categoria},{"owner_id": owner_id}).limit(limit)
-      //? await Item.find({"owner_id": owner_id}).limit(limit)
-      : await Item.find().limit(limit)
+      : await Item.find().limit(limit);
 
       return response.json(result);
     } catch (error) {

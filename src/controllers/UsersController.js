@@ -14,7 +14,7 @@ export default {
   
     try {
       const result = id 
-      ?await User.find({"id":id})
+      ?await User.find({"_id":id})
       :await User.find().limit(limit);
   
       return response.json(result);

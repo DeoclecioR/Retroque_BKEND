@@ -5,12 +5,17 @@ import Trade from '../models/Trades.js';
 export default {
   async show(request, response) {
     //Para retornar uma quantidade limitada de trocas deve-se passar na querystring
-    // "/trade?limit=<quantidade desejada>"
+    // ".../trade?limit=<quantidade desejada>"
+    //Para retornar as trocas de um usuário deve-se passar na querystring
+    // ".../trade?id_user=<id_do_usuario>"
 
     const { limit } = request.query;
+    const { id_user } = request.query;
   
     try {
-      const result = await Trade.find().limit(limit);
+      const result = id_user
+      ?await Trade.find({"id_user_1": id_user},{"id_user_2": id_user}).limit(limit)
+      :await Trade.find().limit(limit);
   
       return response.json(result);
     } catch (error) {
@@ -19,16 +24,16 @@ export default {
   },
 
   async store(request, response) {
-    const { id_user1, 
-            id_item1, 
-            id_user2, 
-            id_item2, } = request.body;
+    const { id_user_1, 
+            id_item_1, 
+            id_user_2, 
+            id_item_2, } = request.body;
   
     const newTrade = {
-      id_user1, 
-      id_item1, 
-      id_user2, 
-      id_item2
+      id_user_1, 
+      id_item_1, 
+      id_user_2, 
+      id_item_2
     }
   
     try {
