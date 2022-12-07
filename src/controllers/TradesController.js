@@ -14,7 +14,8 @@ export default {
   
     try {
       const result = id_user
-      ?await Trade.find({"id_user_1": id_user},{"id_user_2": id_user}).limit(limit)
+      ?await Trade.find({"id_user_1": id_user}).limit(limit)
+      : id_user ? Trade.find({"id_user_2": id_user}).limit(limit)
       :await Trade.find().limit(limit);
   
       return response.json(result);
