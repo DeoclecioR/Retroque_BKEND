@@ -8,6 +8,7 @@ Aplicação: Retroque
 Meta ONU: Consumo e produção responsáveis
 Descrição: Um app para troca de produtos usados
 
+Testes do POSTman estão na pasta do Backend
 
 Em caso de erro de conecxão com servidor confira no banco de dados(MongoDB) se seu IP está registrado
 

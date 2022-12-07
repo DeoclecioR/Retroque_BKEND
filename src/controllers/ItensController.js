@@ -37,7 +37,6 @@ export default {
     const { 
       nome,
       descricao,
-      valor,
       categoria,
       quantidade,
       formas_de_entrega,
@@ -68,7 +67,6 @@ export default {
     const newItem = {
       nome,
       descricao,
-      valor,
       categoria,
       owner_id,
       quantidade,
@@ -93,7 +91,6 @@ export default {
     const { 
       nome,
       descricao,
-      valor,
       categoria,
       quantidade,
       formas_de_entrega,
@@ -122,7 +119,6 @@ export default {
     const editedItem = {
       nome,
       descricao,
-      valor,
       categoria,
       quantidade,
       formas_de_entrega,

@@ -15,10 +15,6 @@ const ItemSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
-    valor: {
-      type: Number,
-      required: true,
-    },
     owner_id: {
       type: String,
       required: true,
