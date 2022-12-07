@@ -7,14 +7,19 @@ export default {
     // "/item?limit=<quantidade desejada>"
     //Para pesquisar uma categoria especéfica, deve se passar como parâmetro na querystring
     // "/item?categoria=<categoria_desejada>"
+    //Para pesquisar uma lista de itens de um usuario especéfico, deve se passar como parâmetro na querystring
+    // "/item?owner_id=<id_do_usuario>"
+
+
     const { categoria } = request.query;
     const { limit } = request.query;
+    const {owner_id} = request.query;
     try {
       const result = categoria
-      ? await Item.find({"categoria": categoria}).limit(limit)
-      : await Item.find().limit(limit);
-    
-  
+      ? await Item.find({"categoria": categoria},{"owner_id": owner_id}).limit(limit)
+      //? await Item.find({"owner_id": owner_id}).limit(limit)
+      : await Item.find().limit(limit)
+
       return response.json(result);
     } catch (error) {
       return response.status(500).json({ error });

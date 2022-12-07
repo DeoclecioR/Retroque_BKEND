@@ -6,11 +6,16 @@ export default {
   async show(request, response) {
     //Para retornar uma quantidade limitada de usuarios deve-se passar na querystring
     // "/user?limit=<quantidade desejada>"
+    //Para pesquisar User por ID basta passar o id na query
+    // "/user?id=<id_desejado>"
 
     const { limit } = request.query;
+    const { id } = request.query;
   
     try {
-      const result = await User.find().limit(limit);
+      const result = id 
+      ?await User.find({"id":id})
+      :await User.find().limit(limit);
   
       return response.json(result);
     } catch (error) {
@@ -93,7 +98,7 @@ export default {
 
   async login(request, response) {
     //Deve ser passado no body o email e senha do usuário
-    //Caso haja no sistema tais dados, será retornado o ID desse usuário
+    //Caso haja no sistema tais dados, será retornado o ID desse usuáruio
 
     const { email } = request.body;
     const { senha } = request.body;
