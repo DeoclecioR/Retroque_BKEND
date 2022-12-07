@@ -31,10 +31,6 @@ const ItemSchema = new mongoose.Schema({
       type: String,
       required: true,
     },
-    formas_de_pagamento: {
-      type: String,
-      required: true,
-    },
     data_de_criacao: {
       type: Date,
       default: Date.now,

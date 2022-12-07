@@ -24,10 +24,6 @@ const UsersSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  trocas_realizadas: {
-    type: Number,
-    default: 0,
-  },
   data_de_criacao: {
     type: Date,
     default: Date.now,

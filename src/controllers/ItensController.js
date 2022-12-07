@@ -16,8 +16,14 @@ export default {
     const {owner_id} = request.query;
     try {
       const result = categoria
-      ? await Item.find({"categoria": categoria},{"owner_id": owner_id}).limit(limit)
-      : await Item.find().limit(limit);
+        ? await Item.find({ "categoria": categoria }).limit(limit)
+        : owner_id ? await Item.find({ "owner_id": owner_id }).limit(limit) 
+        : await Item.find().limit(limit);
+
+
+      //const result = categoria
+      //? await Item.find({"categoria": categoria},{"owner_id": owner_id}).limit(limit)
+      //: await Item.find().limit(limit);
 
       return response.json(result);
     } catch (error) {
@@ -35,7 +41,6 @@ export default {
       categoria,
       quantidade,
       formas_de_entrega,
-      formas_de_pagamento,
       img_url } = request.body;
       
       //criando Slug do item
@@ -68,7 +73,6 @@ export default {
       owner_id,
       quantidade,
       formas_de_entrega,
-      formas_de_pagamento,
       slug,
       img_url
     }
