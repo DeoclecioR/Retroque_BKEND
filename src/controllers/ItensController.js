@@ -4,11 +4,11 @@ import Item from '../models/Itens.js';
 export default {
   async show(request, response) {
     //Para retornar uma quantidade limitada de itens deve-se passar na querystring
-    // "/item?limit=<quantidade desejada>"
+    // ".../item?limit=<quantidade desejada>"
     //Para pesquisar uma categoria especéfica, deve se passar como parâmetro na querystring
-    // "/item?categoria=<categoria_desejada>"
+    // ".../item?categoria=<categoria_desejada>"
     //Para pesquisar uma lista de itens de um usuario especéfico, deve se passar como parâmetro na querystring
-    // "/item?owner_id=<id_do_usuario>"
+    // ".../item?owner_id=<id_do_usuario>"
 
 
     const { categoria } = request.query;
@@ -81,10 +81,9 @@ export default {
     }
   },
 
-
   async update(request, response) {
     //Deve ser passado o id do item para atualizar
-    // item/<id_do_item> 
+    // ../item/<id_do_item> 
     const { id } = request.params;
     
     const { 
@@ -143,7 +142,7 @@ export default {
 
   async destroy(request, response) {
     //Deve ser passado o id do item para deletar
-    // item/<id_do_item>
+    // .../item/<id_do_item>
     const { id } = request.params;
   
     try {

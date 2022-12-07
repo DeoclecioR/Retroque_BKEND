@@ -5,9 +5,9 @@ import User from '../models/Users.js';
 export default {
   async show(request, response) {
     //Para retornar uma quantidade limitada de usuarios deve-se passar na querystring
-    // "/user?limit=<quantidade desejada>"
+    // ".../user?limit=<quantidade desejada>"
     //Para pesquisar User por ID basta passar o id na query
-    // "/user?id=<id_desejado>"
+    // ".../user?id=<id_desejado>"
 
     const { limit } = request.query;
     const { id } = request.query;
@@ -49,7 +49,7 @@ export default {
 
   async update(request, response) {
     //Deve ser passado o id do user para atualizar
-    // user/<id_do_user>
+    // .../user/<id_do_user>
     const { id } = request.params;
     const { nome, 
             endereco, 
@@ -80,7 +80,7 @@ export default {
 
   async destroy(request, response) {
     //Deve ser passado o id do user para deletar
-    // user/<id_do_user>
+    // .../user/<id_do_user>
     const { id } = request.params;
   
     try {

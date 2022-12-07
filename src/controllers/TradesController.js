@@ -46,7 +46,7 @@ export default {
 
   async update(request, response) {
     //Deve ser passado o id da troca para atualizar
-    // "trade/<id_da_trade>"
+    // .../"trade/<id_da_trade>"
     const { id } = request.params;
     const { id_user_1, 
             id_item_1, 
@@ -79,7 +79,7 @@ export default {
 
   async destroy(request, response) {
     //Deve ser passado o id da troca para deletar
-    // trade/<id_do_trade>
+    // .../trade/<id_do_trade>
     const { id } = request.params;
   
     try {
